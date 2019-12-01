@@ -12,23 +12,5 @@
 	<atom:link href="https://Humility.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
-    <item>
-      <title>My First Blog</title>
-      <link>https://Humility.github.io/post/my-first-blog/</link>
-      <pubDate>Sun, 01 Dec 2019 18:50:27 +0800</pubDate>
-      
-      <guid>https://Humility.github.io/post/my-first-blog/</guid>
-      <description>Introduction Just for test :)</description>
-    </item>
-    
-    <item>
-      <title>about</title>
-      <link>https://Humility.github.io/about/</link>
-      <pubDate>Sun, 01 Dec 2019 18:15:23 +0800</pubDate>
-      
-      <guid>https://Humility.github.io/about/</guid>
-      <description></description>
-    </item>
-    
   </channel>
 </rss>
