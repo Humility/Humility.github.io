@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+  <title>初识链表 | The blog of Humility</title>
+  <meta charset='utf-8'>
+  <meta name = 'viewport' content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'>
+  <meta http-equiv = 'X-UA-Compatible' content = 'IE=edge'>
+  <meta name = 'SKYPE_TOOLBAR' content = 'SKYPE_TOOLBAR_PARSER_COMPATIBLE' /><meta name = 'keywords' content = 'The blog of Humility'>
+<meta property = 'og:locale' content = 'en_US' />
+<meta property = 'og:type' content = 'article' />
+<meta property = 'og:title' content = '初识链表' />
+<meta property = 'og:description' content = '初识链表 链表概述 链表是什么呢？简单地说它就是一个由一个个节点组成的一种储存数据的结构。节点里面有着该节点储存的数据和下一个节点的信息（对单项链表而言）。下面我打算用自己实现的简单的单向链表来带着大家熟悉一下诸如插入、删除、检索之类的基本操作。
+链表的基本结构  首先是节点，一条链表就是完全由一个 …'>
+<meta property = 'og:url' content = 'https://humility.github.io/post/%E5%88%9D%E8%AF%86%E9%93%BE%E8%A1%A8/' />
+<meta property = 'og:image' content = 'https://humility.github.io/images/quick-guide-to-angular6_thumb.jpg'/>
+<link rel='apple-touch-icon' sizes='180x180' href='https://humility.github.io/images/icons/apple-touch-icon.png'>
+<link rel='icon' type='image/png' sizes='32x32' href='https://humility.github.io/images/icons/favicon-32x32.png'>
+<link rel='icon' type='image/png' sizes='16x16' href='https://humility.github.io/images/icons/favicon-16x16.png'>
+<link rel='manifest' href='https://humility.github.io/images/icons/site.webmanifest'>
+<meta name='msapplication-TileColor' content='#da532c'>
+<meta name='theme-color' content='#ffffff'>
+
+  <link rel='canonical' href='https://humility.github.io/post/%E5%88%9D%E8%AF%86%E9%93%BE%E8%A1%A8/'>
+  <link rel = 'stylesheet' href = 'https://humility.github.io/css/main.09937ecb1ad66802fdc9f6eeabe4382d3035847b05c4060e4165192fdebf50cfd4a7910fca1dc06fd3dd20bd7c8180256099d894f7b432fdd74b2b513b59cf16.css' integrity = 'sha512-CZN&#43;yxrWaAL9yfbuq&#43;Q4LTA1hHsFxAYOQWUZL96/UM/Up5EPyh3Ab9PdIL18gYAlYJnYlPe0Mv3XSytRO1nPFg=='>
+</head>
+
+  <body>
+    <div class = 'nav-drop'>
+  <div class = 'nav-body'>
+    
+      <a href = 'https://humility.github.io/' class = 'nav_item'>Blog</a>
+    
+      <a href = 'https://humility.github.io/categories' class = 'nav_item'>Category</a>
+    
+      <a href = 'https://humility.github.io/about' class = 'nav_item'>About</a>
+    
+      <a href = 'https://humility.github.io/tags' class = 'nav_item'>Tag</a>
+    
+    <div class = 'nav-close'></div>
+    <div class = 'color_mode'>
+<label for = 'mode'>Toggle Dark Mode</label>
+<input type = 'checkbox' class = 'color_choice' id = 'mode'>
+</div>
+
+  </div>
+</div>
+<header class = 'nav' >
+  <nav class = 'nav-menu'>
+    <a href='https://humility.github.io' class = 'nav-brand nav_item'>The blog of Humility</a>
+    <div class = 'nav_bar-wrap'>
+      <div class = 'nav_bar'></div>
+    </div>
+  </nav>
+</header>
+
+
+    <main>
+      
+  <div class = 'wrap mt post'>
+    <div><p class = 'post_date pale'>15. December 2019</p>
+      <h1 class = 'post_title'>初识链表</h1>
+      <div class = 'post_body'>
+        <div class = 'post_inner'>
+        
+          <img src = 'https://humility.github.io/images/quick-guide-to-angular6_thumb.jpg' alt = 'quick-guide-to-angular6_thumb.jpg' class = 'post_thumbnail'>
+        
+          <h1 id="heading">初识链表</h1>
+<h2 id="heading1">链表概述</h2>
+<p>链表是什么呢？简单地说它就是一个由一个个节点组成的一种储存数据的结构。节点里面有着该节点储存的数据和下一个节点的信息（对单项链表而言）。下面我打算用自己实现的简单的单向链表来带着大家熟悉一下诸如插入、删除、检索之类的基本操作。</p>
+<h2 id="heading2">链表的基本结构</h2>
+<ul>
+<li>首先是节点，一条链表就是完全由一个个节点链接而成的。</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">//节点，构成链表的基本元素。
+</span><span style="color:#75715e"></span><span style="color:#75715e">//简单解释一下尖括号中的E，我们可以把它看成一种参数，需要在创建链表对象的时候传入。它就相当于链表中储存的数据的类型。也就是所谓的类型参数。下面所有涉及到节点的操作都需要这个类型参数。
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Node</span><span style="color:#f92672">&lt;</span>E<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#75715e">//节点内储存的数据。
+</span><span style="color:#75715e"></span>    E item<span style="color:#f92672">;</span>
+
+    <span style="color:#75715e">//该节点下一个节点的引用。（链表不能像数组一样通过下标来进行访问，想要访问某一个元素只能从头节点开始一个个的往后检索。）
+</span><span style="color:#75715e"></span>    Node<span style="color:#f92672">&lt;</span>E<span style="color:#f92672">&gt;</span> next<span style="color:#f92672">;</span>
+
+    <span style="color:#75715e">//节点的构造器，需要传入该节点的数据和下一个节点的信息。
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Node</span><span style="color:#f92672">(</span>E e<span style="color:#f92672">,</span>Node<span style="color:#f92672">&lt;</span>E<span style="color:#f92672">&gt;</span> n<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        item <span style="color:#f92672">=</span> e<span style="color:#f92672">;</span>
+        next <span style="color:#f92672">=</span> n<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><ul>
+<li>然后是整体的链表。</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">//简易的链表，尖括号中的也是类型参数。
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SimpleLinkedList</span><span style="color:#f92672">&lt;</span>E<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#75715e">//Node作为一个静态的内部类存在。 翻译过来也就是说Node类是链表的组成部分，但不依赖于链表的对象存在。
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Node</span><span style="color:#f92672">&lt;</span>E<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+        
+        E item<span style="color:#f92672">;</span>
+
+        Node<span style="color:#f92672">&lt;</span>E<span style="color:#f92672">&gt;</span> next<span style="color:#f92672">;</span>
+
+        <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Node</span><span style="color:#f92672">(</span>E e<span style="color:#f92672">,</span>Node<span style="color:#f92672">&lt;</span>E<span style="color:#f92672">&gt;</span> n<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            item <span style="color:#f92672">=</span> e<span style="color:#f92672">;</span>
+            next <span style="color:#f92672">=</span> n<span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#75715e">//链表的长度，用一个size来记录。
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span> size <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>  
+
+    <span style="color:#75715e">//头节点。也就是链表的开始。
+</span><span style="color:#75715e"></span>    Node<span style="color:#f92672">&lt;</span>E<span style="color:#f92672">&gt;</span> head<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><p>可以看到，就属性而言，链表中只有记录长度的size和一个头节点head。而从物理层面上来讲，head这个头节点包含了其他所有节点。但是从逻辑角度上来讲，所有节点的地位都是相同的，他们一个连接着一个共同构成了一个链表。我们思考链表的时候可以从逻辑的角度出发或许会更易于理解。</p>
+<p><img src="https://i.loli.net/2019/12/16/mv4a7LZFYw3Aoih.png" alt="PNG image-1.png"></p>
+<h2 id="heading3">插入操作</h2>
+<p>插入操作，也就是链表中的add方法。</p>
+<p>add有两个重载的方法，一个默认插入在链表的最后方，另一个可以指定插入的位置。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">//先是一些辅助方法。
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">/**
+</span><span style="color:#75715e"> * 通过链表的节点下标来检索该节点的方法
+</span><span style="color:#75715e"> * @param index 它是需要的节点在链表中的下标。
+</span><span style="color:#75715e"> * @return Node&lt;E&gt; 返回该节点本身。
+</span><span style="color:#75715e"> */</span><span style="color:#f92672">&gt;</span>
+Node<span style="color:#f92672">&lt;</span>E<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">node</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> index<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#75715e">//从头结点开始。
+</span><span style="color:#75715e"></span>    Node<span style="color:#f92672">&lt;</span>E<span style="color:#f92672">&gt;</span> x <span style="color:#f92672">=</span> head<span style="color:#f92672">;</span>
+
+    <span style="color:#75715e">//一个一个的向后检索，直到需要的节点。再把它返回回去。
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span> <span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> index<span style="color:#f92672">;</span> i<span style="color:#f92672">+</span><span style="color:#f92672">+</span> <span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        x <span style="color:#f92672">=</span> x<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">return</span> x<span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#75715e">/**
+</span><span style="color:#75715e"> * 在所给节点之后插入新的节点。
+</span><span style="color:#75715e"> * @param e 需要插入的新的数据
+</span><span style="color:#75715e"> * @param pred predecessor也就是所谓的前置节点，他是我们要插入的节点前面的节点。
+</span><span style="color:#75715e"> */</span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">linkAfter</span><span style="color:#f92672">(</span>E e<span style="color:#f92672">,</span>Node<span style="color:#f92672">&lt;</span>E<span style="color:#f92672">&gt;</span> pred<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    
+    <span style="color:#75715e">//我们假设pred是一个非空引用。
+</span><span style="color:#75715e"></span>
+    <span style="color:#75715e">//step1:创建新的节点。新的节点应该在pred之后和pred的后置节点之前，所以pred的后置节点就应该是newNode的后置节点。
+</span><span style="color:#75715e"></span>    Node<span style="color:#f92672">&lt;</span>E<span style="color:#f92672">&gt;</span> newNode <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Node<span style="color:#f92672">&lt;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">(</span>e<span style="color:#f92672">,</span>pred<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+    <span style="color:#75715e">//step2:将新的节点连接到原来的pred节点之后。newNode插入之后应该是pred节点的后置节点。
+</span><span style="color:#75715e"></span>    pred<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> newNode<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">}</span>
+
+<span style="color:#75715e">/**
+</span><span style="color:#75715e"> * 在头节点之前插入新的节点。
+</span><span style="color:#75715e"> * @param e 需要插入的元素
+</span><span style="color:#75715e"> */</span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">linkHead</span><span style="color:#f92672">(</span>E e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+
+    Node<span style="color:#f92672">&lt;</span>E<span style="color:#f92672">&gt;</span> newNode <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Node<span style="color:#f92672">&lt;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">(</span>e<span style="color:#f92672">,</span>head<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+    head <span style="color:#f92672">=</span> newNode<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">}</span>
+
+<span style="color:#75715e">/**
+</span><span style="color:#75715e"> * 在链表的最后插入节点。
+</span><span style="color:#75715e"> * @param e 需要插入的元素
+</span><span style="color:#75715e"> */</span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">linkLast</span><span style="color:#f92672">(</span>E e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#75715e">//插入的节点是在链表的最后方，所以他的后置节点一定是null。
+</span><span style="color:#75715e"></span>    Node<span style="color:#f92672">&lt;</span>E<span style="color:#f92672">&gt;</span> newNode <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Node<span style="color:#f92672">&lt;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">(</span>e<span style="color:#f92672">,</span><span style="color:#66d9ef">null</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+    <span style="color:#75715e">//考虑一下头指针为空的情况
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span> head <span style="color:#f92672">=</span><span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        head <span style="color:#f92672">=</span> newNode<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">return</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#75715e">//头指针不为空
+</span><span style="color:#75715e"></span>    Node<span style="color:#f92672">&lt;</span>E<span style="color:#f92672">&gt;</span> l <span style="color:#f92672">=</span> node<span style="color:#f92672">(</span>size<span style="color:#f92672">-</span>1<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+
+
+<span style="color:#f92672">}</span>
+
+<span style="color:#75715e">//下面是给用户使用的方法
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> index<span style="color:#f92672">,</span>E element<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#75715e">//index可能为0，这就需要在头指针之前插入节点。
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span> index <span style="color:#f92672">=</span><span style="color:#f92672">=</span> 0 <span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        linkHead<span style="color:#f92672">(</span>e<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#75715e">//要在index位置插入一个元素，而我们现在有一个linkAfter方法。所以需要取到index的前置节点。
+</span><span style="color:#75715e"></span>    Node<span style="color:#f92672">&lt;</span>E<span style="color:#f92672">&gt;</span> pred <span style="color:#f92672">=</span> node<span style="color:#f92672">(</span>index<span style="color:#f92672">-</span>1<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+    <span style="color:#75715e">//在pred之后插入新的节点。
+</span><span style="color:#75715e"></span>    linkAfter<span style="color:#f92672">(</span>element<span style="color:#f92672">,</span>pred<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+    <span style="color:#75715e">//加入了一个新的节点，链表的size就需要+1。
+</span><span style="color:#75715e"></span>    size<span style="color:#f92672">+</span><span style="color:#f92672">+</span><span style="color:#f92672">;</span>
+
+<span style="color:#f92672">}</span>
+
+<span style="color:#75715e">//默认的在链表最后插入元素。
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>E element<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+
+
+<span style="color:#f92672">}</span>
+</code></pre></div><p><img src="https://i.loli.net/2019/12/16/ALWXUNaiHOCJ5sZ.png" alt="PNG image-2.png"></p>
+<h2 id="heading4">检索操作</h2>
+<p>检索分为两部分，一是通过节点下标来检索对应节点中的数据。二是通过元素来找到它对应节点的下标。</p>
+<p>简单的实现一下get方法也就是第一点通过下标找数据。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/** 
+</span><span style="color:#75715e"> * 通过下标的检索。
+</span><span style="color:#75715e"> * @param index 需要查找的下标
+</span><span style="color:#75715e"> * @return E 返回下标对应的元素
+</span><span style="color:#75715e"> */</span>
+<span style="color:#66d9ef">public</span> E <span style="color:#a6e22e">get</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> index<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    
+    <span style="color:#75715e">//简便起见，我们假设index是一个合法的下标
+</span><span style="color:#75715e"></span>    Node<span style="color:#f92672">&lt;</span>E<span style="color:#f92672">&gt;</span> n <span style="color:#f92672">=</span> node<span style="color:#f92672">(</span>index<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">return</span> n<span style="color:#f92672">.</span><span style="color:#a6e22e">item</span><span style="color:#f92672">;</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><h2 id="heading5">删除操作</h2>
+<p>单向链表由于其固有的局限性，删除操作显得有些过于复杂(It's freaking head.&lt;误&gt;)。在此就不多赘述了。</p>
+<h1 id="heading6">其他</h1>
+<p>下面补充一点题外话，感兴趣的各位可以自己去做深入的了解 -&gt;-&gt;</p>
+<p>其实从效率上来讲，现在用的多的是双向链表，基本操作其实都是差不都的。就比如说java中的LinkedList就是一种双项链表。大家感兴趣的可以直接去看看jdk中的源代码。</p>
+<p>链表是一种非常常用的数据结构。他和动态数组各有优劣。常常需要我们根据具体情况进行选择。</p>
+<p>总的来说，想要理解链表，最好的方式就是对照着源代码上的各种操作，在旁边画出图像辅助，尝试着进行理解。</p>
+<p>总感觉分析的太过详细，大家不会嫌我话痨吧（艹皿艹）</p>
+
+        </div>
+        <div class ='post_extra mb-2'>
+          <div class = 'copy'></div>
+
+        </div>
+        <div>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href = 'https://humility.github.io' class = 'post_nav'><span class = 'post_next'>The Latest</span>T</a>
+
+    </main>
+    <footer class = 'footer wrap pale'>
+  <p>&copy;&nbsp;<span class = 'year'></span>&nbsp;The blog of Humility</p>
+  <p>Designed by  <a href = 'https://github.com/Humility' target = '_blank' title = 'Linkedin Profile' rel = 'nonopener'>Humility</a></p>
+</footer>
+
+<script src = 'https://humility.github.io/js/index.js'></script>
+
+  </body>
+</html>

@@ -1,42 +1,42 @@
 <!DOCTYPE html>
 <html lang='en'>
   <head>
-  <title>About the recursion. | The blog of Humility</title>
+  <title>About recursion. | The blog of Humility</title>
   <meta charset='utf-8'>
   <meta name = 'viewport' content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'>
   <meta http-equiv = 'X-UA-Compatible' content = 'IE=edge'>
   <meta name = 'SKYPE_TOOLBAR' content = 'SKYPE_TOOLBAR_PARSER_COMPATIBLE' /><meta name = 'keywords' content = 'The blog of Humility'>
 <meta property = 'og:locale' content = 'en_US' />
 <meta property = 'og:type' content = 'article' />
-<meta property = 'og:title' content = 'About the recursion.' />
+<meta property = 'og:title' content = 'About recursion.' />
 <meta property = 'og:description' content = '递归那些事儿 简介  递归,就是递归。
  这句话便是一个典型的递归定义：递归是什么呢？递归是递归，而递归又是 什么呢？。。。。这样层层嵌套，无穷匮也。
 可如果真的要说他是递归，他还不算完整。因为他陷入了一个死循环，永远没有办法出来，更别说让他来告诉我们递归的真正含意了。
  详解 递归，直白的说就是让 …'>
-<meta property = 'og:url' content = 'https://Humility.github.io/post/recursion/' />
-<meta property = 'og:image' content = 'https://Humility.github.io/images/artist.jpg'/>
-<link rel='apple-touch-icon' sizes='180x180' href='https://Humility.github.io/images/icons/apple-touch-icon.png'>
-<link rel='icon' type='image/png' sizes='32x32' href='https://Humility.github.io/images/icons/favicon-32x32.png'>
-<link rel='icon' type='image/png' sizes='16x16' href='https://Humility.github.io/images/icons/favicon-16x16.png'>
-<link rel='manifest' href='https://Humility.github.io/images/icons/site.webmanifest'>
+<meta property = 'og:url' content = 'https://humility.github.io/post/recursion/' />
+<meta property = 'og:image' content = 'https://humility.github.io/images/artist.jpg'/>
+<link rel='apple-touch-icon' sizes='180x180' href='https://humility.github.io/images/icons/apple-touch-icon.png'>
+<link rel='icon' type='image/png' sizes='32x32' href='https://humility.github.io/images/icons/favicon-32x32.png'>
+<link rel='icon' type='image/png' sizes='16x16' href='https://humility.github.io/images/icons/favicon-16x16.png'>
+<link rel='manifest' href='https://humility.github.io/images/icons/site.webmanifest'>
 <meta name='msapplication-TileColor' content='#da532c'>
 <meta name='theme-color' content='#ffffff'>
 
-  <link rel='canonical' href='https://Humility.github.io/post/recursion/'>
-  <link rel = 'stylesheet' href = 'https://Humility.github.io/css/main.b0ac407d0a09a6c172f935b7d3afda4642ac549eb8c4651938e8d0d2a1a435e41829c5f91cc59b2d72c550e3292077c2ee7742719bb8b436763589a46ee0c74d.css' integrity = 'sha512-sKxAfQoJpsFy&#43;TW306/aRkKsVJ64xGUZOOjQ0qGkNeQYKcX5HMWbLXLFUOMpIHfC7ndCcZu4tDZ2NYmkbuDHTQ=='>
+  <link rel='canonical' href='https://humility.github.io/post/recursion/'>
+  <link rel = 'stylesheet' href = 'https://humility.github.io/css/main.09937ecb1ad66802fdc9f6eeabe4382d3035847b05c4060e4165192fdebf50cfd4a7910fca1dc06fd3dd20bd7c8180256099d894f7b432fdd74b2b513b59cf16.css' integrity = 'sha512-CZN&#43;yxrWaAL9yfbuq&#43;Q4LTA1hHsFxAYOQWUZL96/UM/Up5EPyh3Ab9PdIL18gYAlYJnYlPe0Mv3XSytRO1nPFg=='>
 </head>
 
   <body>
     <div class = 'nav-drop'>
   <div class = 'nav-body'>
     
-      <a href = 'https://Humility.github.io/' class = 'nav_item'>Blog</a>
+      <a href = 'https://humility.github.io/' class = 'nav_item'>Blog</a>
     
-      <a href = 'https://Humility.github.io/categories' class = 'nav_item'>Category</a>
+      <a href = 'https://humility.github.io/categories' class = 'nav_item'>Category</a>
     
-      <a href = 'https://Humility.github.io/about' class = 'nav_item'>About</a>
+      <a href = 'https://humility.github.io/about' class = 'nav_item'>About</a>
     
-      <a href = 'https://Humility.github.io/tags' class = 'nav_item'>Tag</a>
+      <a href = 'https://humility.github.io/tags' class = 'nav_item'>Tag</a>
     
     <div class = 'nav-close'></div>
     <div class = 'color_mode'>
@@ -48,7 +48,7 @@
 </div>
 <header class = 'nav' >
   <nav class = 'nav-menu'>
-    <a href='https://Humility.github.io/' class = 'nav-brand nav_item'>The blog of Humility</a>
+    <a href='https://humility.github.io' class = 'nav-brand nav_item'>The blog of Humility</a>
     <div class = 'nav_bar-wrap'>
       <div class = 'nav_bar'></div>
     </div>
@@ -60,11 +60,11 @@
       
   <div class = 'wrap mt post'>
     <div><p class = 'post_date pale'>06. December 2019</p>
-      <h1 class = 'post_title'>About the recursion.</h1>
+      <h1 class = 'post_title'>About recursion.</h1>
       <div class = 'post_body'>
         <div class = 'post_inner'>
         
-          <img src = 'https://Humility.github.io/images/artist.jpg' alt = 'artist.jpg' class = 'post_thumbnail'>
+          <img src = 'https://humility.github.io/images/artist.jpg' alt = 'artist.jpg' class = 'post_thumbnail'>
         
           <h2 id="heading">递归那些事儿</h2>
 <h3 id="heading1">简介</h3>
@@ -80,7 +80,7 @@
 <p>虽是自己调用自己，但也不是一尘不变的。在解决复杂问题的时候，递归就像是在把问题分解，分解成一个个便于解决的小问题。也就是在每一层调用的时候解决掉问题的一小部分，剩下那个规模已经缩小的部分交给下面的自己解决。。。以此类推，等到问题的规模足够小之后就一鼓作气全部解决。</p>
 <p>想必你已经从上面看出了递归的两个要素了吧。没错，一个就是缩小问题的条件，还有一个就是让递归终止的条件了（这个让递归终止的条件不可或缺，你绝对不能让一个递归永远进行下去）。前面一个我们称之为递归条件，后面一个我们称之为基线条件。下面一起来看一个递归的简单应用，在这之前我要简单的说一下函数调用栈的概念。（不是什么可怕的东西，但是关乎对程序执行过程的理解。）</p>
 <h4 id="heading3">函数调用栈</h4>
-<p><a href="https://baike.baidu.com/item/%E6%A0%88/12808149">栈</a>，是程序运行时操作系统给它分配的一块内存空间。而函数调用栈（或者简称调用栈）是存放函数调用信息的一块内存空间。程序启动时由系统调用main方法，然后在main方法又会调用各种各样的方法。每调用一个方法都会把它的调用信息压在调用栈的最上方。系统会从调用栈最上方的方法开始执行，如果该方法中调用了别的方法，就会把它压在自己上方等待他先执行。执行结束的方法会被清楚。（这也就是所谓的退栈操作）没有执行结束的方法会一直存在（它的各种成员变量都会被保存在那边），等待上方执行完成。</p>
+<p><a href="https://baike.baidu.com/item/%E6%A0%88/12808149">栈</a>，是程序运行时操作系统给它分配的一块内存空间。而函数调用栈（或者简称调用栈）是存放函数调用信息的一块内存空间。程序启动时由系统调用main方法，然后在main方法又会调用各种各样的方法。每调用一个方法都会把它的调用信息压在调用栈的最上方。系统会从调用栈最上方的方法开始执行，如果该方法中调用了别的方法，就会把它压在自己上方等待他先执行。执行结束的方法会被清除。（这也就是所谓的退栈操作）没有执行结束的方法会一直存在（它的各种成员变量都会被保存在那边），等待上方执行完成。</p>
 <p>另外，函数的调用信息还是比较占内存的。而调用栈大小有限，这也就是为什么递归层数不能过深的原因了。</p>
 <h4 id="heading4">简单应用</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/**
@@ -116,7 +116,7 @@
       </div>
     </div>
   </div>
-  <a href = 'https://Humility.github.io/' class = 'post_nav'><span class = 'post_next'>The Latest</span>T</a>
+  <a href = 'https://humility.github.io' class = 'post_nav'><span class = 'post_next'>The Latest</span>T</a>
 
     </main>
     <footer class = 'footer wrap pale'>
@@ -124,7 +124,7 @@
   <p>Designed by  <a href = 'https://github.com/Humility' target = '_blank' title = 'Linkedin Profile' rel = 'nonopener'>Humility</a></p>
 </footer>
 
-<script src = 'https://Humility.github.io/js/index.js'></script>
+<script src = 'https://humility.github.io/js/index.js'></script>
 
   </body>
 </html>
