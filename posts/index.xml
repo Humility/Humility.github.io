@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>The blog of Humility</title>
-    <link>http://example.org/</link>
-    <description>Recent content on The blog of Humility</description>
+    <title>Posts on The blog of Humility</title>
+    <link>http://example.org/posts/</link>
+    <description>Recent content in Posts on The blog of Humility</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2019, Weru and the Hugo Authors; all rights reserved.</copyright>
-    <lastBuildDate>Sun, 01 Dec 2019 18:32:42 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 02 Dec 2020 00:38:20 +0800</lastBuildDate>
     
-	<atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -42,17 +42,6 @@
 对于如何利用别人的这种心理，便涉及到了伦理和道德标准。虽然在很多时候它确实是一种win-win的策略，但是目前的我对它是十分抵触的。
 更好的建模人们的决策行为，更好的建模这个复杂的社会。在一定程度上这是一种对于我们好奇心的探索。
 “世上只有一种真正的英雄主义，那就是在看清生活的真相之后依然热爱生活。”最后想把这句话送个自己。愿我在能够更好的了解生活的真相，更好的去热爱生活。</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>http://example.org/about/</link>
-      <pubDate>Mon, 30 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>http://example.org/about/</guid>
-      <description>Hey you guys! Welcome my personal blog!. about me I&#39;m a freshman in SDU. With the intension to share my understand with all of you and,if possible, bring you some help, I created this blog.
-I will refresh it frequently to record my learning process. :)
-Here is my github account. Wait for your visit.</description>
     </item>
     
   </channel>
