@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>经济学 on The blog of Humility</title>
-    <link>http://example.org/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6/</link>
+    <link>https://Humility.github.io/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6/</link>
     <description>Recent content in 经济学 on The blog of Humility</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2019, Weru and the Hugo Authors; all rights reserved.</copyright>
     <lastBuildDate>Wed, 02 Dec 2020 00:38:20 +0800</lastBuildDate>
     
-	<atom:link href="http://example.org/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://Humility.github.io/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>漫谈前景理论</title>
-      <link>http://example.org/posts/%E6%BC%AB%E8%B0%88%E5%89%8D%E6%99%AF%E7%90%86%E8%AE%BA/</link>
+      <link>https://Humility.github.io/posts/%E6%BC%AB%E8%B0%88%E5%89%8D%E6%99%AF%E7%90%86%E8%AE%BA/</link>
       <pubDate>Wed, 02 Dec 2020 00:38:20 +0800</pubDate>
       
-      <guid>http://example.org/posts/%E6%BC%AB%E8%B0%88%E5%89%8D%E6%99%AF%E7%90%86%E8%AE%BA/</guid>
+      <guid>https://Humility.github.io/posts/%E6%BC%AB%E8%B0%88%E5%89%8D%E6%99%AF%E7%90%86%E8%AE%BA/</guid>
       <description>信息完备，自私自利，绝对理性。。。这些都是理性人所具有的特征。整套西方古典经济学理论便建立在对人这样的假设之上。不可否认，在某种程度上，这种抽象无疑是非常成功的：它赋予了经济学模型分析和解决很多复杂现实问题的能力。但在另一种程度上，这种抽象也是失败的：模型的预测结果与很多实验数据相悖。
 这种失败在某种程度上来说也是必然的。这种简单的抽象略去了人类非理性的一面，而我们往往都是非理性的。
 “所有模型都是错误的，但其中的某些是有用的。”所有的模型都是对真实世界的一种抽象。而行为经济学则建模了人的心理因素对决策造成的影响。前景理论便是其中非常优秀的一部分。它从实证研究出发，在人的心理特质和行为特征两个角度揭示了影响人类决策的非理性因素。
